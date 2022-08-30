@@ -1,0 +1,28 @@
+version: "3.7"
+services:
+    app:
+        container_name: pkid
+        image: jimber/pkid:staging-${PKID_IMAGE_TAG}
+        restart: always
+        depends_on:
+            - redis
+        environment:
+            - PORT=80
+            - AUTH_BACKEND_URL=https://login.staging.jimber.io/api
+            - REDIS_URL=redis://pkid_redis
+
+    redis:
+        container_name: pkid_redis
+        image: redis
+        restart: always
+        command: ["redis-server", "--appendonly", "yes"]
+        volumes:
+            - pkid-data:/data
+
+networks:
+    default:
+        name: proxy
+
+volumes:
+    pkid-data:
+        name: pkid-data
