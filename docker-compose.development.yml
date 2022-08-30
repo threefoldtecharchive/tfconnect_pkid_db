@@ -1,0 +1,19 @@
+version: '3'
+services:
+    pkid-development-db:
+        image: redis:alpine
+        container_name: pkid-development-db
+        restart: always
+        environment:
+            - ALLOW_EMPTY_PASSWORD=yes
+        volumes:
+            - db_data_development:/redis/data
+        ports:
+            - "6379:6379"
+        networks:
+            - pkid-development-network
+
+volumes:
+    db_data_development:
+networks:
+    pkid-development-network:
