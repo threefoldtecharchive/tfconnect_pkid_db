@@ -39,6 +39,29 @@ export class NamespaceGuard implements CanActivate {
       parseJson: true,
     });
 
+    const namespaceData = verifiedSignedData.map(
+      (namespace: NameSpace) => new NameSpace(namespace),
+    );
+
+    const validation = await validate(new NameSpaceValidator(namespaceData));
+
+    // Find the cause of the error within the nested array of namespaces
+    if (validation.length > 0) {
+      const errors = [];
+      validation.forEach((validation) =>
+        validation.children.forEach((child) => {
+          child.children.forEach((subChild) => {
+            subChild.children.forEach(({ constraints }) => {
+              errors.push({
+                [child.value.name]: Object.values(constraints),
+              });
+            });
+          });
+        }),
+      );
+      throw new BadRequestException(errors, 'validationFailed');
+    }
+
     request.publicKey = publicKey;
     return !!verifiedSignedData;
   }
