@@ -32,7 +32,5 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
       - uses: actions/checkout@v2
-      - name: Down
-        run: docker-compose -f docker-compose.staging.yml down
       - name: Deploy
-        run: docker-compose -f docker-compose.staging.yml up -d
+        run: docker-compose -f docker-compose.staging.yml up --force-recreate -d
