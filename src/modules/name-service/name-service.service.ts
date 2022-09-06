@@ -21,7 +21,7 @@ export class NameService {
   public async getWallets(nameSpace: string): Promise<{ data: string }> {
     const namespaceData = await this.getAccountDetails(nameSpace);
 
-    if (namespaceData?.doublename !== nameSpace) {
+    if (namespaceData?.doublename.localeCompare(nameSpace, undefined, { sensitivity: 'base' }) === 0) {
       throw new BadRequestException('invalidNamespace');
     }
 
