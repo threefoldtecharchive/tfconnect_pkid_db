@@ -1,4 +1,4 @@
-# PKID
+# PKID ( Rework in Nest.JS )
 
 ## Concept
 PKID is a public Key Indexed Datastore. You can save plain or encrypted data in a public key index; as long as you are the owner of the secret corresponding to that public key.
