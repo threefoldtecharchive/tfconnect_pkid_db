@@ -58,4 +58,4 @@ jobs:
           echo $(ls ${HOME}/.kube)
       - name: Upgrade cluster
         run: |
-          helm upgrade --install stg-pkid helm_charts -f helm_charts/values/values-beta.yaml --set global.PKID_IMAGE=threefoldjimber/pkid:beta-${{ github.sha }}  --set global.REDIS_PASSWORD="${{ secrets.BETA_REDIS_PASSWORD }}" --set REDIS_URL="redis://:${{secrets.BETA_REDIS_PASSWORD}}@beta-pkid-redis-pkid:6379" -n jimber
+          helm upgrade --install beta-pkid helm_charts -f helm_charts/values/values-beta.yaml --set global.PKID_IMAGE=threefoldjimber/pkid:beta-${{ github.sha }}  --set global.REDIS_PASSWORD="${{ secrets.BETA_REDIS_PASSWORD }}" --set REDIS_URL="redis://:${{secrets.BETA_REDIS_PASSWORD}}@beta-pkid-redis-pkid:6379" -n jimber
