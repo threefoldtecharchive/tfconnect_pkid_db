@@ -24,7 +24,7 @@ spec:
           - name: REDIS_URL
             value: {{ include "pkid.REDIS_URL" . }}
           - name: REDIS_USERNAME
-            value: {{ include "pkid.REDIS_USERNAME" . }}
+            value: "default"
           - name: REDIS_PASSWORD
             value: {{ include "pkid.REDIS_PASSWORD" . }}
           - name: PORT
