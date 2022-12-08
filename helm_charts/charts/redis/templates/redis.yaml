@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "redis.FULL_NAME" . }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ include "redis.FULL_NAME" . }}
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: {{ include "redis.FULL_NAME" . }}
+    spec:
+      restartPolicy: Always
+      containers:
+        - image: redis
+          command: [ "redis-server" ]
+          args: [ "--appendonly", "yes" ]
+          name: redis
+          env:
+            - name: REDIS_PASSWORD
+              value: {{ include "pkid.REDIS_PASSWORD" . }}
+          ports:
+            - name: redis
+              containerPort: 6379
+          volumeMounts:
+            - mountPath: /data
+              name: {{ include "redis.FULL_NAME" . }}-pvc
+      volumes:
+        - name: {{ include "redis.FULL_NAME" . }}-pvc
+          persistentVolumeClaim:
+            claimName: {{ include "redis.FULL_NAME" . }}-pvc

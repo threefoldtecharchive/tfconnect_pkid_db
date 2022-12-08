@@ -1,0 +1,6 @@
+apiVersion: v2
+name: redis-pkid
+appVersion: "3.6"
+description: Helm charts for Redis for Pkid v2
+version: 1.0.0
+type: application

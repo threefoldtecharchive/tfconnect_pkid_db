@@ -1,0 +1,17 @@
+ingress:
+  hosts:
+    - host:
+        domain: pkid.jimber.org
+        path: /
+        chart: pkid
+        service: production-pkid
+
+acme:
+  email: lennert.defauw@jimber.org
+
+global:
+  PKID_IMAGE: ""
+  REDIS_URL: ""
+  REDIS_PASSWORD: ""
+  AUTH_BACKEND_URL: "https://login.threefold.me/api"
+

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: {{ include "redis.FULL_NAME" . }}
+  name: {{ include "redis.FULL_NAME" . }}
+spec:
+  type: ClusterIP
+  ports:
+    - port: 6379
+      targetPort: 6379
+      protocol: TCP
+  selector:
+    app: {{ include "redis.FULL_NAME" . }}
+

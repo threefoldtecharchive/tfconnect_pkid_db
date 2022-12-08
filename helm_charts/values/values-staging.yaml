@@ -1,0 +1,16 @@
+ingress:
+  hosts:
+    - host:
+        domain: pkid-staging.jimbertesting.be
+        path: /
+        chart: pkid
+        service: staging-pkid
+
+acme:
+  email: lennert.defauw@jimber.org
+
+global:
+  PKID_IMAGE: ""
+  REDIS_URL: ""
+  REDIS_PASSWORD: ""
+  AUTH_BACKEND_URL: "https://login.staging.jimber.io/api"

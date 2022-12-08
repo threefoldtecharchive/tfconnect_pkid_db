@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: {{ include "pkid.FULL_NAME" . }}
+  name: {{ include "pkid.FULL_NAME" . }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: 3001
+      targetPort: 3001
+      protocol: "TCP"
+  selector:
+    app: {{ include "pkid.FULL_NAME" . }}
