@@ -1,10 +1,11 @@
 ingress:
   hosts:
     - host:
-        domain: pkid.jimber.org
+        name: pkid-production.jimbertesting.be
         path: /
-        chart: pkid
+        port: 80
         service: production-pkid-api
+
 
 acme:
   email: lennert.defauw@jimber.org

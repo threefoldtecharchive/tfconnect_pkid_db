@@ -1,9 +1,9 @@
 ingress:
   hosts:
     - host:
-        domain: pkid-staging.jimbertesting.be
+        name: pkid-staging.jimbertesting.be
         path: /
-        chart: pkid
+        port: 80
         service: staging-pkid-api
 
 acme:
