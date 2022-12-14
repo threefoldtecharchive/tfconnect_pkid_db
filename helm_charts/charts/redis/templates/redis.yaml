@@ -18,7 +18,7 @@ spec:
       containers:
         - image: redis
           command: [ "redis-server" ]
-          args: [ "--appendonly", "yes" ]
+          args: [ "--appendonly", "no" ]
           name: redis
           env:
             - name: REDIS_PASSWORD
