@@ -4,7 +4,7 @@ ingress:
         domain: pkid-staging.jimbertesting.be
         path: /
         chart: pkid
-        service: stg-pkid
+        service: staging-pkid
 
 acme:
   email: lennert.defauw@jimber.org

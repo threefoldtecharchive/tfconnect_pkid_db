@@ -58,4 +58,4 @@ jobs:
           echo $(ls ${HOME}/.kube)
       - name: Upgrade cluster
         run: |
-          helm upgrade --install stg-pkid helm_charts -f helm_charts/values/values-staging.yaml --set global.PKID_IMAGE=threefoldjimber/pkid:staging-${{ github.sha }}  --set global.REDIS_PASSWORD="${{ secrets.STAGING_REDIS_PASSWORD }}" --set global.REDIS_URL="redis://:${{secrets.STAGING_REDIS_PASSWORD}}@stg-pkid-redis-pkid:6379" -n jimber
+          helm upgrade --install staging-pkid helm_charts -f helm_charts/values/values-staging.yaml --set global.PKID_IMAGE=threefoldjimber/pkid:staging-${{ github.sha }}  --set global.REDIS_PASSWORD="${{ secrets.STAGING_REDIS_PASSWORD }}" --set global.REDIS_URL="redis://:${{secrets.STAGING_REDIS_PASSWORD}}@stg-pkid-redis-pkid:6379" -n jimber
