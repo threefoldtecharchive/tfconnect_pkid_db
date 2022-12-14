@@ -28,8 +28,8 @@ spec:
               containerPort: 6379
           volumeMounts:
             - mountPath: /data
-              name: {{ include "redis.FULL_NAME" . }}-pvc
+              name: pkid-data
       volumes:
-        - name: {{ include "redis.FULL_NAME" . }}-pvc
+        - name: pkid-data
           persistentVolumeClaim:
-            claimName: {{ include "redis.FULL_NAME" . }}-pvc
+            claimName: pkid-pvc
