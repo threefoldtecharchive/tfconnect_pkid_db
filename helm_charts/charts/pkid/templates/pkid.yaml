@@ -18,7 +18,7 @@ spec:
         imagePullPolicy: Always
         name: {{ include "pkid.FULL_NAME" . }}
         ports:
-          - name: {{ include "pkid.FULL_NAME" . }}
+          - name: pkid-api
             containerPort: 3001
         env:
           - name: REDIS_URL

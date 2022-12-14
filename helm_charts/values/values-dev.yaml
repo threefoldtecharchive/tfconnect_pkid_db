@@ -4,7 +4,7 @@ ingress:
         domain: pkid-dev.jimbertesting.be
         path: /
         chart: pkid
-        service: dev-pkid
+        service: dev-pkid-api
 
 acme:
   email: lennert.defauw@jimber.org
