@@ -65,3 +65,15 @@ See callback.js @ https://github.com/threefoldtech/threefold_connect/blob/master
 Get the derived seed from the decrypted data in step 2, use the "Set document" section to write to PKID.
 
 
+## Environments
+
+**Beta**
+```shell
+https:/pkid-beta.jimbertesting.be
+```
+
+
+**Staging**
+```shell
+https:/pkid-staging.jimbertesting.be
+```
