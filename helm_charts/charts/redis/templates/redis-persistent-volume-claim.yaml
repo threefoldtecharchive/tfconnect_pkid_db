@@ -1,12 +1,12 @@
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: {{ include "redis.FULL_NAME" . }}-pvc
-  namespace: jimber
-spec:
-  accessModes:
-    - ReadWriteMany
-  resources:
-    requests:
-      storage: {{ .Values.volume.storage }}
-  storageClassName: rook-cephfs
+#apiVersion: v1
+#kind: PersistentVolumeClaim
+#metadata:
+#  name: {{ include "redis.FULL_NAME" . }}-pvc
+#  namespace: jimber
+#spec:
+#  accessModes:
+#    - ReadWriteMany
+#  resources:
+#    requests:
+#      storage: {{ .Values.volume.storage }}
+#  storageClassName: rook-cephfs

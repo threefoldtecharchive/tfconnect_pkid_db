@@ -18,7 +18,7 @@ spec:
       containers:
         - image: redis
           command: [ "redis-server" ]
-          args: [ "--appendonly", "yes", '--dbfilename', 'test.rdb' ]
+          args: [ "--appendonly", "yes" ]
           name: redis
           env:
             - name: REDIS_PASSWORD
@@ -29,7 +29,7 @@ spec:
           volumeMounts:
             - mountPath: /data
               name: {{ include "redis.FULL_NAME" . }}-pvc
-      volumes:
-        - name: {{ include "redis.FULL_NAME" . }}-pvc
-          persistentVolumeClaim:
-            claimName: {{ include "redis.FULL_NAME" . }}-pvc
+#      volumes:
+#        - name: {{ include "redis.FULL_NAME" . }}-pvc
+#          persistentVolumeClaim:
+#            claimName: {{ include "redis.FULL_NAME" . }}-pvc
