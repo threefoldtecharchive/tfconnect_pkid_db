@@ -16,6 +16,8 @@ export class DocumentService {
   ) {}
 
   public async getDocumentByKey(params: IParam) {
+    await this.redisClient.select(1);
+
     const key = generateDocumentKey(params);
 
     const doesKeyExist = await this.redisClient.exists(key);
@@ -26,7 +28,7 @@ export class DocumentService {
     const document = await this.redisClient.get(key);
 
     return {
-      data: JSON.parse(document),
+      data: document,
     };
   }
 
