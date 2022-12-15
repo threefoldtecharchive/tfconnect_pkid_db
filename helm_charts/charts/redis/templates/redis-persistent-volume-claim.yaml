@@ -3,6 +3,8 @@ kind: PersistentVolumeClaim
 metadata:
   name: {{ include "redis.FULL_NAME" . }}-pvc
   namespace: jimber
+  annotations:
+    helm.sh/resource-policy: "keep"
 spec:
   accessModes:
     - ReadWriteMany
