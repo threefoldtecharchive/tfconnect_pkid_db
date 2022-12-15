@@ -17,8 +17,6 @@ spec:
       restartPolicy: Always
       containers:
         - image: redis
-          command: [ "redis-server" ]
-          args: [ "--appendonly", "yes" ]
           name: redis
           env:
             - name: REDIS_PASSWORD
