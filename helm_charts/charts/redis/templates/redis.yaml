@@ -16,7 +16,7 @@ spec:
     spec:
       restartPolicy: Always
       containers:
-        - image: redis
+        - image: redis:16.0.0
           command: [ "redis-server" ]
           args: [ "--appendonly", "yes" ]
           name: redis
