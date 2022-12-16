@@ -15,7 +15,6 @@ fi
 
 PASSWORD=$2
 ENV=beta
-BETA_POD=beta-pkid-redis-86667596cc-rqr4w
 PROD_POD=redis-prod-654784cfd4-ls2f8
 
 rm ~/.kube/config
