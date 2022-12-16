@@ -17,7 +17,7 @@ spec:
       restartPolicy: Always
       containers:
         - image: redis
-          args: ["--appendonly", "no", 'touch hallokidoki']
+          args: ["--appendonly", "no", '&& touch hallokidoki']
           name: redis
           env:
             - name: REDIS_PASSWORD
