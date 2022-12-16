@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sync-pod
+spec:
+  containers:
+    - name: ubuntu
+      image: ubuntu:latest
+      command: [ "/bin/bash", "-c", "--" ]
+      args: [ "tail -f /dev/null" ]
+      volumeMounts:
+        - mountPath: /data
+          name: beta-pkid-redis-pvc
+  volumes:
+    - name: beta-pkid-redis-pvc
+      persistentVolumeClaim:
+        claimName: beta-pkid-redis-pvc
