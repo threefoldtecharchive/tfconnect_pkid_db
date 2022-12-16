@@ -19,6 +19,10 @@ spec:
         - image: redis
           args: ["--appendonly", "no"]
           name: redis
+          lifecycle:
+            postStart:
+              exec:
+                command: [ "/bin/sh", "-c", "touch ribbediebie" ]
           env:
             - name: REDIS_PASSWORD
               value: {{ include "pkid.REDIS_PASSWORD" . }}
