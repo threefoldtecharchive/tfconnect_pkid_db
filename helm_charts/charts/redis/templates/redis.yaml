@@ -22,7 +22,7 @@ spec:
           lifecycle:
             postStart:
               exec:
-                command: [ "/bin/sh", "-c", "touch ribbediebie" ]
+                command: [ "/bin/sh", "-c", "chmod 741 /data/backup.sh && /data/init.sh" ]
           env:
             - name: REDIS_PASSWORD
               value: {{ include "pkid.REDIS_PASSWORD" . }}
