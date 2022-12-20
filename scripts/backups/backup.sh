@@ -1,4 +1,4 @@
-                                                                backup.sh                                                                                #/bin/bash
+#!/bin/bash
 
 source ~/.bashrc
 
