@@ -13,7 +13,8 @@ gcloud auth activate-service-account --key-file google-cloud-key.json
 chmod 741 /data/backup.sh
 
 command="/data/backup.sh"
-job="0 * * * $command"
+job="50 08 * * * $command"
 cat <(fgrep -i -v "$command" <(crontab -l)) <(echo "$job") | crontab -
 
 service cron start
+
