@@ -1,4 +1,3 @@
-  GNU nano 5.4                                                                       init.sh
 #!/bin/bash
 
 apt update && apt install python3 cron nano curl -y
