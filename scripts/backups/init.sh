@@ -1,3 +1,4 @@
+  GNU nano 5.4                                                                       init.sh
 #!/bin/bash
 
 apt update && apt install python3 cron nano curl -y
@@ -12,9 +13,8 @@ source ~/.bashrc
 gcloud auth activate-service-account --key-file google-cloud-key.json
 chmod 741 /data/backup.sh
 
-command="/data/backup.sh"
-job="50 08 * * * $command"
+command="/data/backup.sh > /data/logging.txt  2>&1 or &"
+job="0 1 * * * $command"
 cat <(fgrep -i -v "$command" <(crontab -l)) <(echo "$job") | crontab -
 
 service cron start
-
